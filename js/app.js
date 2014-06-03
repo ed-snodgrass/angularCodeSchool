@@ -1,9 +1,20 @@
-(function (){
-
-    var app = angular.module('store', []);
+(function() {
+    var app = angular.module('gemStore', []);
 
     app.controller('StoreController', function(){
         this.products = gems;
+    });
+
+    app.controller('TabController', function(){
+        this.tab = 1;
+
+        this.setTab = function(newValue){
+            this.tab = newValue;
+        };
+
+        this.isSet = function(tabName){
+            return this.tab === tabName;
+        };
     });
 
     var gems = [
@@ -43,7 +54,7 @@
             images: [
                 "images/gem-01.gif",
                 "images/gem-03.gif",
-                "images/gem-04.gif",
+                "images/gem-04.gif"
             ],
             reviews: [{
                 stars: 3,
