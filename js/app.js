@@ -43,14 +43,21 @@
         };
     });
 
-    app.controller('GalleryController', function(){
-        this.current = 0;
-        this.setCurrent = function(theCurrent){
-            if(theCurrent){
-                this.current = theCurrent;
-            }else{
+    app.directive('productGallery', function(){
+        return {
+            restrict: 'E',
+            templateUrl: 'product-gallery.html',
+            controller: function(){
                 this.current = 0;
-            }
+                this.setCurrent = function(theCurrent){
+                    if(theCurrent){
+                        this.current = theCurrent;
+                    }else{
+                        this.current = 0;
+                    }
+                };
+            },
+            controllerAs: 'gallery'
         };
     });
 
