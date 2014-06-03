@@ -1,6 +1,29 @@
 (function() {
     var app = angular.module('gemStore', []);
 
+    app.directive('productTitle', function(){
+        return {
+            restrict: 'E', <!-- E is for element, used for UI widgets -->
+//            restrict: 'A', <!-- A is for attribute, used for behaviors like tooltips -->
+
+            templateUrl: 'product-title.html'
+        };
+    });
+
+    app.directive('productDescription', function(){
+        return {
+            restrict: 'E',
+            templateUrl: 'product-description.html'
+        };
+    });
+
+    app.directive('productSpecs', function(){
+        return {
+            restrict: 'E',
+            templateUrl: 'product-specs.html'
+        };
+    });
+
     app.controller('GalleryController', function(){
         this.current = 0;
         this.setCurrent = function(theCurrent){
