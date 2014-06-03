@@ -24,6 +24,25 @@
         };
     });
 
+    app.directive('productPanelsNav', function(){
+        return {
+            restrict: 'E',
+            templateUrl: 'product-panels-nav.html',
+            controller: function(){
+                this.tab = 1;
+
+                this.setTab = function(newValue){
+                    this.tab = newValue;
+                };
+
+                this.isSet = function(tabName){
+                    return this.tab === tabName;
+                };
+            },
+            controllerAs: 'tab'
+        };
+    });
+
     app.controller('GalleryController', function(){
         this.current = 0;
         this.setCurrent = function(theCurrent){
@@ -46,18 +65,6 @@
 
     app.controller('StoreController', function(){
         this.products = gems;
-    });
-
-    app.controller('TabController', function(){
-        this.tab = 1;
-
-        this.setTab = function(newValue){
-            this.tab = newValue;
-        };
-
-        this.isSet = function(tabName){
-            return this.tab === tabName;
-        };
     });
 
     var gems = [
